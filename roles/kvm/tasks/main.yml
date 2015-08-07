@@ -1,0 +1,20 @@
+- name: checking kvm presence
+  apt: pkg=qemu-kvm state=latest
+
+- name: checking libvirt-bin presence
+  apt: pkg=libvirt-bin state=latest
+
+- name: checking user fanch is in group libvirt
+  user: name=fanch
+    groups="libvirt"
+    append=yes
+
+#- name: checking hook for allowing communication between VMs and BM containers
+#  template: src=hooks.qemu.j2 dest=/etc/libvirt/hooks/qemu owner=root group=libvirt mode=0755
+- name: checking firewall rules for communication between container & NATed VMs
+  copy:
+    dest=/etc/ferm/ferm.d/libvirt.conf
+    src=etc/ferm/ferm.d/libvirt.conf
+    owner=root group=root mode=600
+  notify:
+    - restart ferm

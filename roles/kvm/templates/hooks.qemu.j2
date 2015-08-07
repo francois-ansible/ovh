@@ -1,0 +1,3 @@
+#!/bin/bash
+
+iptables -I FORWARD -p all -s 172.17.0.0/16 -d 192.168.122.0/24 -j ACCEPT

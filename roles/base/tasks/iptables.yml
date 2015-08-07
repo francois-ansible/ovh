@@ -1,0 +1,25 @@
+---
+- name: Install ferm
+  apt:
+    name=ferm
+    state=present
+
+- name: Add ferm config directory
+  file:
+    path=/etc/ferm
+    state=directory
+    owner=root group=root mode=0700
+
+- name: Add ferm config directory for additional config files
+  file:
+    path=/etc/ferm/ferm.d
+    state=directory
+    owner=root group=root mode=0700
+
+- name: Upload config
+  copy:
+    dest=/etc/ferm/ferm.conf
+    src=etc/ferm/ferm.conf
+    owner=root group=root mode=0700
+  notify:
+    - restart ferm

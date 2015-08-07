@@ -1,0 +1,4 @@
+- name: checking presence of package vim
+  apt: pkg=vim state=latest
+
+#TODO: Add personnal vim config  

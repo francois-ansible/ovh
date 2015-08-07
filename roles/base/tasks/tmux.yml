@@ -1,0 +1,4 @@
+- name: checking presence of package tmux
+  apt: pkg=tmux state=latest
+
+#TODO: Add personal tmuc config

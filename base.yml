@@ -1,0 +1,22 @@
+- hosts: all
+  remote_user: root
+  roles:
+    - base
+#    - Stouts.iptables
+#  vars:
+#    dns_ip: 192.168.0.254
+#    iptables_allowed_tcp_ports: [22]
+#    iptables_raw_rules:
+#      # Allowing everything toward ext
+#      - -A OUTPUT -p all -s 0.0.0.0/0 -d 0.0.0.0/0 -j ACCEPT
+#      # Allowing DNS lookups (tcp, udp port 53) to server 192.168.0.254 (dns ovh)
+#      - -A OUTPUT -p udp -d {{ dns_ip }} --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#      - -A INPUT -p udp -s {{ dns_ip }} --sport 53 -m state --state ESTABLISHED -j ACCEPT
+#      - -A OUTPUT -p tcp -d {{ dns_ip }} --dport 53 -m state --state NEW,ESTABLISHED -j ACCEPT
+#      - -A INPUT -p tcp -s {{ dns_ip }} --sport 53 -m state --state ESTABLISHED -j ACCEPT
+#      # Allowing bare metal container to talk to kvm's VMs
+#      #- -A FORWARD -p all -s 172.17.0.0/16 -d 192.168.122.0/24 -j ACCEPT
+#
+#      # Test allowing port 80
+#      #- -A INPUT -m state --state NEW -p tcp --dport 80 -j ACCEPT
+#      #- -A INPUT -m state --state NEW -p tcp --dport 443 -j ACCEPT

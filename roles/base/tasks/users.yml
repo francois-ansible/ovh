@@ -1,0 +1,11 @@
+- name: checking presence of package sudo
+  apt: pkg=sudo state=latest
+
+- name: checking presence of user fanch
+  user: name=fanch
+    state=present
+    shell=/bin/bash
+    group=users
+    groups="sudo"
+    password={{ system_password }}
+    append=yes

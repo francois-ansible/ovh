@@ -1,0 +1,13 @@
+- name: apply common configuration to all nodes
+  hosts: all
+  include: base.yml
+
+- name: checking hypervisors compliance
+  hosts: hypervisors
+  include: hypervisors.yml
+
+- name: checking docker install
+  hosts: docker-hosts
+  include: docker.yml
+
+

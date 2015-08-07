@@ -1,0 +1,2 @@
+# python -c 'import crypt; print crypt.crypt("This is my Password", "$1$SomeSalt$")'
+system_password: $1$S0meS@lt$qvRnMhl80kTU/xOAOryQO0
